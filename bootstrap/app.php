@@ -60,7 +60,8 @@ $app->singleton(
 */
 
 $app->middleware([
-    App\Http\Middleware\RequestLogMiddleware::class
+    App\Http\Middleware\RequestLogMiddleware::class,
+    'hello' => App\Http\Middleware\HelloMiddleware::class,
 ]);
 
 // $app->routeMiddleware([

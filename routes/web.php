@@ -15,6 +15,12 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 
-$app->get('/hello/{name}', function ($name) use ($app) {
-    return "Hello {$name}";
-});
+$app->get(
+    '/hello/{name}',
+    [
+        'middleware' => 'hello',
+        function ($name) use ($app) {
+            return "Hello {$name}";
+        }
+    ]
+);
