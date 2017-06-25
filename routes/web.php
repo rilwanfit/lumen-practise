@@ -24,3 +24,16 @@ $app->get(
         }
     ]
 );
+
+$app->get('/ads', 'AdsController@index'); // Get all the ads
+$app->post('/ads', 'AdsController@store'); // Create a new ads
+//$app->get('/ads/{id:[\d]+}', 'AdsController@show'); // Get an ads (id --- integer will match)
+$app->get(
+    '/ads/{id:[\d]+}',
+    [
+        'as' => 'ads.show',
+        'uses' => 'AdsController@show'
+    ]
+); // Get an ads (id --- integer will match)
+$app->put('/ads/{id:[\d]+}', 'AdsController@update'); // Update an ads (id --- integer will match)
+$app->delete('/ads/{id:[\d]+}', 'AdsController@destroy'); // Delete an ads (id --- integer will match)

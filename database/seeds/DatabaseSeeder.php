@@ -1,5 +1,6 @@
 <?php
 
+use App\Ad;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,6 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call('UsersTableSeeder');
+        Ad::truncate();
+        $this->call('AdsTableSeeder');
     }
 }
